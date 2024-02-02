@@ -1,8 +1,9 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
 import {provideAnimations} from "@angular/platform-browser/animations";
 
 import { routes } from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,5 +13,8 @@ export const appConfig: ApplicationConfig = {
       withComponentInputBinding()
     ),  
     provideAnimations(),  
+    importProvidersFrom(
+      HttpClientModule
+    )
   ]
 };
